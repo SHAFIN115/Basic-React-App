@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 const Weather = () => {
   const [location, setLocation] = useState('');
@@ -19,23 +20,26 @@ const Weather = () => {
   };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <input
-        type="text"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <button onClick={fetchWeatherData}>Get Weather</button>
-      {weatherData && (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <p>{weatherData.weather[0].description}</p>
-          <p>{`Temperature: ${weatherData.main.temp}°C`}</p>
-          <p>{`Humidity: ${weatherData.main.humidity}%`}</p>
-        </div>
-      )}
-    </div>
+      <div className="container">
+          <h1>Weather App</h1>
+          <input
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="inputField"
+          />
+          <button onClick={fetchWeatherData} className="button">
+              Get Weather
+          </button>
+          {weatherData && (
+              <div style={{ marginTop: '20px' }}>
+                  <h2>{weatherData.name}</h2>
+                  <p>{weatherData.weather[0].description}</p>
+                  <p>{`Temperature: ${weatherData.main.temp}°C`}</p>
+                  <p>{`Humidity: ${weatherData.main.humidity}%`}</p>
+              </div>
+          )}
+      </div>
   );
 };
 

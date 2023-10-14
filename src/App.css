@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 400px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
