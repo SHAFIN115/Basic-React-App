@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
-import logo from './logo.svg';
 
 const Weather = () => {
-  const [lat, setLat] = useState('');
-  const [lon, setLon] = useState('');
+  const [location, setLocation] = useState('');
   const [weatherData, setWeatherData] = useState(null);
 
-  const apiKey = 'c43666a92e23a0ae4ea557a271cbaa31';
+  const apiKey = 'c43666a92e23a0ae4ea557a271cbaa31'; // Replace with your actual API key
 
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
       );
       const data = await response.json();
       setWeatherData(data);
