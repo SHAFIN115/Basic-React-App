@@ -55,7 +55,7 @@ const Weather = () => {
           <p>{`Humidity: ${weatherData.main.humidity}%`}</p>
           <p>{`Visibility: ${weatherData.visibility} meters`}</p>
           <p>{`Wind Speed: ${weatherData.wind.speed} m/s`}</p>
-          <p>{`FOR TESTING MERGE CONFLICTS: ${weatherData.wind.speed} m/s`}</p>
+          <p>{`FOR TESTING MERGE AND OTHERS CONFLICTS: ${weatherData.wind.speed} m/s`}</p>
           <p>{`Wind Direction: ${weatherData.wind.deg}°`}</p>
           <p>{`Rainfall (1h): ${weatherData.rain ? weatherData.rain['1h'] : 0} mm`}</p>
           <p>{`Cloudiness: ${weatherData.clouds.all}%`}</p>
