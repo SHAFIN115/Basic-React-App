@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
+import logo from './logo.svg';
 
 const Weather = () => {
-  const [location, setLocation] = useState('');
+  const [lat, setLat] = useState('');
+  const [lon, setLon] = useState('');
   const [weatherData, setWeatherData] = useState(null);
 
-  const apiKey = 'c43666a92e23a0ae4ea557a271cbaa31'; // Replace with your actual API key
+  const apiKey = 'c43666a92e23a0ae4ea557a271cbaa31';
 
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
       );
       const data = await response.json();
       setWeatherData(data);
@@ -26,14 +28,14 @@ const Weather = () => {
         type="text"
         value={lat}
         onChange={(e) => setLat(e.target.value)}
-        placeholder="Longitude"
+        placeholder="Latitude"
         className="inputField"
       />
       <input
         type="text"
         value={lon}
         onChange={(e) => setLon(e.target.value)}
-        placeholder="Latitude"
+        placeholder="Longitude"
         className="inputField"
       />
       <button onClick={fetchWeatherData} className="button">
@@ -53,7 +55,6 @@ const Weather = () => {
           <p>{`Humidity: ${weatherData.main.humidity}%`}</p>
           <p>{`Visibility: ${weatherData.visibility} meters`}</p>
           <p>{`Wind Speed: ${weatherData.wind.speed} m/s`}</p>
-          <p>{`FOR TESTING MERGE AND OTHERS CONFLICTS: ${weatherData.wind.speed} m/s`}</p>
           <p>{`Wind Direction: ${weatherData.wind.deg}°`}</p>
           <p>{`Rainfall (1h): ${weatherData.rain ? weatherData.rain['1h'] : 0} mm`}</p>
           <p>{`Cloudiness: ${weatherData.clouds.all}%`}</p>
